@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+}
+
+.screen.active {
+    display: flex;
+}
+
+header {
+    background-color: #283593;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+main {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#start-game-button, #next-level-button {
+    background: linear-gradient(145deg, #00796b, #004d40);
+    color: #fff;
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+   
+}
+
+#start-game-button:hover, #next-level-button:hover {
+    background: linear-gradient(145deg, #004d40, #00796b);
+}
+
+.hidden {
+    display: none;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 150, 136, 0.4);
+}
+
+#game-screen main {
+    justify-content: space-between;
+    padding: 0;
+}
+
+.target-number, .input-area {
+    text-align: center;
+    padding: 20px;
+}
+
+.label {
+    font-size: 1em;
+    color: #666;
+}
+
+#target-number {
+    font-size: 3.5em;
+    color: #1c2541;
+    margin-top: 10px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+}
+
+#calculation-display {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 20px;
+    min-height: 40px;
+    word-wrap: break-word;
+    padding: 20px;
+    transition: background-color 0.3s;
+    background: linear-gradient(to bottom, #e1e5eb, #d6dae3);
+}
+
+.buttons {
+    padding: 0 10px;
+}
+
+.number-pad {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.number-button, .operator-button, .utility-button {
+    width: 22%;
+    background-color: #e0e0e0;
+    color: #000;
+    font-size: 1.5em;
+    margin: 1% 0;
+    padding: 15px 0;
+    border-radius: 8px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.1s ease, background-color 0.3s ease;
+}
+
+.number-button:active, .operator-button:active, .utility-button:active {
+    transform: scale(0.95);
+}
+
+.number-button.used {
+    background-color: #b0bec5;
+    color: #fff;
+}
+
+.controls {
+    padding: 20px;
+    text-align: center;
+}
+
+#submit-button {
+    width: 100%;
+    padding: 15px 0;
+    font-size: 1.2em;
+    background-color: #00796b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#submit-button:active {
+    transform: scale(0.95);
+}
+
+.feedback {
+    padding: 10px;
+    font-size: 1.2em;
+    text-align: center;
+    color: #6200ee;
+    min-height: 1.5em;
+}
+
+.feedback.show {
+    animation: fadeIn 0.5s forwards;
+}
+
+.feedback.success {
+    color: #2e7d32;
+}
+
+.feedback.error {
+    color: #d32f2f;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#end-screen main p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 20px;
+    background-color: red;
+    opacity: 0.9;
+    animation: confetti-fall 2s linear forwards, confetti-drift 2s ease-in-out forwards;
+}
+
+@keyframes confetti-fall {
+    from {
+        transform: translateY(-100%) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(100vh) rotate(720deg);
+    }
+}
+
+@keyframes confetti-drift {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(30px);
+    }
+}
+
+.dark-mode body {
+    background-color: #1c1c1c;
+    color: #e0e0e0;
+}
+
+.dark-mode header {
+    background-color: #333a4f;
+}
+
+.dark-mode .number-button, .dark-mode .operator-button, .dark-mode .utility-button {
+    background-color: #444;
+    color: #fff;
+}
+
+.dark-mode #submit-button {
+    background-color: #004d40;
+}
+
+@media (min-width: 500px) {
+    #target-number {
+        font-size: 4em;
+    }
+
+    #calculation-display {
+        font-size: 2em;
+    }
+}

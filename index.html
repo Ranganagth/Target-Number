@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get The Number</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Title Screen -->
+        <div id="title-screen" class="screen">
+            <header>
+                <h1>Get The Number</h1>
+            </header>
+            <main>
+                <button id="start-game-button">Start Game</button>
+            </main>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <header>
+                <h1>Level <span id="level-number">1</span></h1>
+            </header>
+            <main>
+                <section class="target-number">
+                    <div class="label">Target Number</div>
+                    <div id="target-number">24</div>
+                </section>
+                <section class="input-area">
+                    <div class="label">Your Calculation</div>
+                    <div id="calculation-display">Select numbers and operators below</div>
+                </section>
+                <section class="buttons">
+                    <div class="number-pad" id="number-pad">
+                        <!-- Number and Operator Buttons will be generated dynamically -->
+                    </div>
+                </section>
+                <section class="controls">
+                    <button id="submit-button">Submit Answer</button>
+                </section>
+                <section class="feedback" id="feedback"></section>
+            </main>
+        </div>
+
+        <!-- End Screen -->
+        <div id="end-screen" class="screen hidden">
+            <header>
+                <h1>Congratulations!</h1>
+            </header>
+            <main>
+                <p>You have completed Level <span id="final-level">1</span>!</p>
+                <button id="next-level-button">Next Level</button>
+            </main>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
